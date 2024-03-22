@@ -1,5 +1,7 @@
 package GamesObjects;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import DAOs.MySqlGamesDao;
@@ -36,6 +38,18 @@ public class App
             else
                 System.out.println("Game with that ID not found");
 
+
+            System.out.println("\nCall deleteGameByID");
+            int gameToDeleteId = 111;
+
+            Games deletedGame = IUserDao.deleteGameByID(gameToDeleteId);
+
+            if (deletedGame != null)
+                System.out.println("Deleted Game: " + deletedGame);
+            else
+                System.out.println("No game to delete :<");
+            System.out.println("\nCall insertGame");
+            IUserDao.insertGame(new Games(959, "bluhbluh", "99", 23, 473, new Date(364738274)));
         }
         catch(DaoException e )
         {
